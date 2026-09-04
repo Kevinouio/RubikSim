@@ -1,0 +1,7 @@
+{
+  "name": "rubiksim-browser-checks",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node check.mjs", "test:shell": "node check.mjs --shell" },
+  "devDependencies": { "playwright": "1.56.1" }
+}

@@ -1,5 +1,7 @@
 # Implementation Roadmap
 
+Historical starting roadmap. The scoped implementation plan and actual evidence now live in [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md) and [docs/STATUS.md](docs/STATUS.md). The active goal ends at the complete, verified 3×3 milestone; other puzzles are excluded. Use README.md for the exact pinned toolchain and runnable commands.
+
 Short, actionable steps to turn the design into a working Unity/WebGL Rubik’s Cube tutorial.
 
 ## Project setup
@@ -25,7 +27,7 @@ Short, actionable steps to turn the design into a working Unity/WebGL Rubik’s 
 
 ## Solver (CFOP, likely 2-look OLL/PLL to start)
 - Implement move parser `ApplyMoves("R U R' U'")` operating on `CubeState`.
-- Phase functions: Cross, First Layer Corners, Second Layer edges, OLL (2-look), PLL (2-look); each returns move list.
+- Phase functions: aligned Cross, four corner/edge F2L pairs, OLL (2-look), PLL (2-look); each returns a verified teaching step. Separate first-layer corners followed by middle-layer edges is not the selected CFOP method.
 - Detect last-layer cases via `CubeState`; store algorithm library for OLL/PLL patterns.
 - Integrate solver with animation pipeline to step through generated moves.
 

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111b22">
+  <title>RubikSim — learn the next move</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./" aria-label="RubikSim home"><span class="brand-mark" aria-hidden="true">▦</span> RubikSim</a><span class="tag">THE CUBE LAB</span><span id="connection" class="connection">Connecting to Unity</span></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">PLAY. RECOGNIZE. UNDERSTAND.</p><h1>Learn the next move.</h1><p>Explore your cube, then follow a solution built from its current state.</p></div><div class="puzzle-picker"><label for="puzzle">Your puzzle</label><select id="puzzle"><option>3 × 3 × 3 · CFOP</option></select><small>Development build · Web verification pending</small></div></div>
+    <div class="workspace">
+      <section class="simulation panel" aria-label="Interactive cube">
+        <div class="panel-head"><span class="eyebrow">01 / EXPLORE</span><button data-command="resetView" class="quiet" disabled>Reset view</button></div>
+        <div id="viewport"><canvas id="unity-canvas" tabindex="0" aria-label="Interactive 3D cube. Drag a sticker to turn. Right-drag or drag the background to orbit. Scroll to zoom. Keyboard U R F D L B; Shift for inverse."></canvas><div id="loading" role="status"><strong>Loading the cube</strong><p id="loading-message">Looking for the local Unity Web build…</p><progress id="load-progress" max="1" value="0" aria-label="Unity loading progress"></progress></div></div>
+        <p class="gesture-help">Drag a sticker to turn <span>·</span> Drag background to orbit <span>·</span> Scroll to zoom</p>
+        <div id="face-controls" class="face-controls" aria-label="Face turn controls"></div>
+        <div class="action-row"><button data-command="scramble" class="accent" disabled>Scramble</button><button data-command="reset" disabled>Reset cube</button><button data-command="undo" disabled>Undo</button><button data-command="redo" disabled>Redo</button><label class="seed-label">Seed <input id="seed" type="number" value="42" min="0" max="2147483647"></label></div>
+        <p class="fine">Scrambles use seeded random moves, not uniform random states or official competition scrambles.</p>
+        <form id="notation-form"><label for="notation">Try a move sequence</label><div class="input-row"><input id="notation" autocomplete="off" spellcheck="false" placeholder="R U R′ U′" aria-describedby="notation-help"><button id="apply-notation" disabled>Apply</button></div><small id="notation-help">Face turns, primes, doubles, wide turns, M E S and x y z. Separate moves with spaces.</small></form>
+      </section>
+      <aside class="tutor panel" aria-label="CFOP tutorial">
+        <div class="panel-head"><span class="eyebrow">02 / UNDERSTAND</span><span class="method-label">CFOP · two-look OLL / PLL</span></div>
+        <h2>A reason for every turn.</h2><p class="muted">Build an aligned cross, insert four F2L pairs, then orient and permute the last layer.</p>
+        <div class="action-row"><button data-command="solve" class="accent" disabled>Solve current state</button><button data-command="cancel" hidden disabled>Cancel solve</button></div>
+        <p id="status" role="status" aria-live="polite">The tutor is waiting for the Unity simulation.</p><p id="error" role="alert" hidden></p>
+        <nav id="phase-list" aria-label="Solution phases"><span>Cross</span><span>F2L pairs</span><span>OLL</span><span>PLL</span></nav>
+        <article id="lesson"><p class="eyebrow" id="case-label">YOUR NEXT STEP</p><h3 id="step-goal">Start with a scramble.</h3><p id="recognition">Or enter the colors of a cube you have in front of you.</p><p id="explanation">The solver uses the current stickers. No scramble history is needed.</p><dl id="algorithm-parts" hidden><dt>Setup</dt><dd id="setup-moves"></dd><dt>Algorithm</dt><dd id="algorithm-moves"></dd><dt>Final alignment</dt><dd id="alignment-moves"></dd></dl><p id="orientation" class="fine">Face letters stay tied to the notation frame as you orbit the camera.</p><a id="source" href="https://jperm.net/3x3/cfop" target="_blank" rel="noreferrer">About the CFOP method ↗</a></article>
+        <div class="playback"><div class="playback-buttons"><button data-command="previous" aria-label="Previous move" disabled>←</button><button data-command="play" disabled>Play</button><button data-command="pause" disabled>Pause</button><button data-command="next" aria-label="Next move / hint" disabled>→</button><span id="move-count">0 / 0</span></div><label for="speed">Playback speed <output id="speed-label">3 moves/s</output></label><input id="speed" type="range" min="0.5" max="12" step="0.5" value="3" disabled></div>
+        <div id="move-list" aria-label="Solution move sequence"><span class="muted">Your verified move sequence will appear here.</span></div>
+        <details class="practice"><summary>Practice a last-layer case</summary><p>Load a supported case into the cube, then ask the tutor to explain it.</p><label for="practice-case">Case</label><select id="practice-case"><option value="sune">OLL · Sune</option><option value="t-perm">PLL · adjacent corner swap (T)</option></select><button data-command="practice" disabled>Load practice case</button></details>
+      </aside>
+    </div>
+    <section class="state panel" aria-label="Cube state editor">
+      <div class="panel-head"><div><p class="eyebrow">03 / MAKE IT YOURS</p><h2>Bring your own state.</h2></div><p class="muted">All state data stays in this browser.</p></div>
+      <div class="state-columns"><div><p class="muted">Look directly at each face. Choose a home color, then select stickers. Centers can change only with a legal whole-cube orientation.</p><div id="palette" role="group" aria-label="Sticker color"></div><div id="face-editor" aria-label="54-sticker face editor"></div><div class="action-row"><button id="read-facelets" disabled>Copy current cube</button><button id="apply-facelets" disabled>Validate &amp; load colors</button></div></div><div><label for="state-data">Versioned state snapshot</label><textarea id="state-data" rows="9" spellcheck="false" placeholder="Export the current cube or paste a RubikSim state snapshot."></textarea><div class="action-row"><button data-command="export" disabled>Export state</button><button data-command="import" disabled>Validate &amp; import</button><button id="download-state" disabled>Download</button></div><label class="check-label"><input id="remember" type="checkbox"> Remember my cube on this device</label><p class="fine">Imports are checked for piece inventory, corner twist, edge flip, and matching corner/edge parity. Invalid edits leave the current cube intact.</p><p id="state-audit" class="fine">State/view agreement: not measured</p></div></div>
+    </section>
+  </main>
+  <footer><span>RubikSim / a local learning space</span><span>White U · Red R · Green F · Yellow D · Orange L · Blue B</span></footer>
+</body>
+</html>

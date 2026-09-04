@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-04T20:22:03.722Z",
+  "browser": "152.0.4191.62",
+  "mode": "website shell only",
+  "url": "http://127.0.0.1:8080",
+  "checks": [
+    "Accessible HTML page, 54-sticker editor and 18 explicit face-turn controls",
+    "Missing Unity build is explicit; cube and solver controls stay disabled",
+    "Face editor palette and color-independent labels update",
+    "390px layout has no horizontal overflow; actual desktop/mobile screenshots captured",
+    "No browser JavaScript errors"
+  ],
+  "unityChecksRun": false,
+  "notRun": [
+    "Unity Editor compilation",
+    "Unity rendering",
+    "Unity Web build",
+    "Live cube controls/playback/state-view agreement/performance"
+  ]
+}

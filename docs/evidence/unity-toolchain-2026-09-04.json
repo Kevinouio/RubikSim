@@ -1,0 +1,157 @@
+{
+  "scope": "Official package provenance, archive extraction and static dependency inspection. This file does not assert Unity import, compilation, scene verification, Web build or browser checks passed.",
+  "recordedDate": "2026-09-04",
+  "release": {
+    "version": "6000.0.68f1",
+    "revision": "e1e9baaf294b",
+    "releasedUtc": "2026-02-18T14:49:24.665Z",
+    "platform": "WINDOWS",
+    "architecture": "X86_64",
+    "releasePage": "https://unity.com/releases/editor/whats-new/6000.0.68f1",
+    "metadataEndpoint": "https://services.api.unity.com/unity/editor/release/v1/releases?version=6000.0.68f1&architecture=X86_64&platform=WINDOWS&limit=1",
+    "localMetadata": ".tools/unity-downloads/release-metadata.json"
+  },
+  "editor": {
+    "url": "https://download.unity3d.com/download_unity/e1e9baaf294b/Windows64EditorInstaller/UnitySetup64-6000.0.68f1.exe",
+    "localArchive": ".tools/unity-downloads/UnitySetup64-6000.0.68f1.exe",
+    "officialDownloadBytes": 4080916376,
+    "officialInstalledBytes": 7774185345,
+    "officialIntegrity": "md5-DGSyVKwDHg5z5EsjXujf/A==",
+    "actualDownloadBytes": 4080916376,
+    "actualMd5": "0c64b254ac031e0e73e44b235ee8dffc",
+    "actualSha256": "7378b4cff9e0ba663f91cffa14acf1f21b21f22ee88596c0f43a92a19573975c",
+    "md5MatchesOfficialMetadata": true,
+    "authenticode": {
+      "status": "Valid",
+      "publisher": "CN=Unity Technologies SF, O=Unity Technologies SF, L=San Francisco, S=California, C=US, SERIALNUMBER=3183233, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=California, OID.1.3.6.1.4.1.311.60.2.1.3=US",
+      "verifiedUtc": "2026-09-04T20:42:59.1726564Z",
+      "localVerificationRecord": ".tools/unity-downloads/editor-verification.json"
+    },
+    "extraction": {
+      "status": "Complete",
+      "exitCode": 0,
+      "elapsedSeconds": 180.2,
+      "localCatalog": ".tools/unity-downloads/editor-payload.json",
+      "catalogFiles": 46383,
+      "extractedFiles": 46383,
+      "unextractedCatalogEntries": 0,
+      "bytes": 7774185345,
+      "bytesMatchOfficialInstalledSize": true,
+      "allFileCrc32ChecksPassed": true,
+      "output": ".tools/unity-editor-extracted"
+    }
+  },
+  "web": {
+    "moduleId": "webgl",
+    "url": "https://download.unity3d.com/download_unity/e1e9baaf294b/TargetSupportInstaller/UnitySetup-WebGL-Support-for-Editor-6000.0.68f1.exe",
+    "localArchive": ".tools/unity-downloads/UnitySetup-WebGL-Support-for-Editor-6000.0.68f1.exe",
+    "officialDestination": "{UNITY_PATH}",
+    "officialSubModules": [],
+    "officialDownloadBytes": 953524120,
+    "officialInstalledBytes": 4342549717,
+    "officialIntegrity": "md5-Km6X1QEAW+n1MozAPrDNbw==",
+    "actualDownloadBytes": 953524120,
+    "actualMd5": "2a6e97d501005be9f5328cc03eb0cd6f",
+    "actualSha256": "304eeae394f2fc9b49ddb1871b739669c41d42d5d48614965f558e283c58b8bd",
+    "md5MatchesOfficialMetadata": true,
+    "authenticode": {
+      "status": "Valid",
+      "statusMessage": "Signature verified.",
+      "publisher": "CN=Unity Technologies SF, O=Unity Technologies SF, L=San Francisco, S=California, C=US, SERIALNUMBER=3183233, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=California, OID.1.3.6.1.4.1.311.60.2.1.3=US",
+      "signerThumbprint": "BFFD800651947878FCD0DC749C16D57B0D5E397D",
+      "timestampPublisher": "CN=DigiCert SHA256 RSA4096 Timestamp Responder 2025 1, O=DigiCert, Inc., C=US"
+    },
+    "extraction": {
+      "status": "Complete",
+      "exitCode": 0,
+      "elapsedSeconds": 59.7,
+      "localManifest": ".tools/unity-downloads/webgl-extraction.json",
+      "output": ".tools/unity-webgl-extracted",
+      "currentMergedPayload": ".tools/unity-editor-extracted/Editor/Data/PlaybackEngines/WebGLSupport",
+      "merge": "Parent agent moved the extracted WebGLSupport directory into the Editor using a guarded workspace-local Move-Item; the recorded extraction command and original output remain historical evidence",
+      "payloadRoot": "Editor/Data/PlaybackEngines/WebGLSupport",
+      "files": 14517,
+      "unextractedCatalogEntries": 0,
+      "bytes": 4342549717,
+      "bytesMatchOfficialInstalledSize": true,
+      "allFileCrc32ChecksPassed": true,
+      "metadataBytes": 1040222,
+      "command": "python .tools/nsis-research/unpack_unity_nsisbi.py .tools/unity-downloads/UnitySetup-WebGL-Support-for-Editor-6000.0.68f1.exe --expected-md5 2a6e97d501005be9f5328cc03eb0cd6f --manifest .tools/unity-downloads/webgl-extraction.json --output .tools/unity-webgl-extracted"
+    },
+    "extensionAssembly": {
+      "path": "Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll",
+      "bytes": 96768,
+      "sha256": "cd39e42dd70d05f0be825488ef82dbb7eb79b7fed292d227b39cfb991ad32cc3",
+      "authenticode": "NotSigned; provenance is the verified signed enclosing package and per-file archive CRC",
+      "name": "UnityEditor.WebGL.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "inspection": "System.Reflection.Assembly.ReflectionOnlyLoadFrom followed by GetReferencedAssemblies; target assembly code not executed",
+      "references": [
+        "netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+        "UnityEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Bee.BinLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "WebGLPlayerBuildProgram.Data, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "Appium.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "WebDriver, Version=3.141.0.0, Culture=neutral, PublicKeyToken=null"
+      ]
+    }
+  },
+  "archiveHandling": {
+    "installerExecuted": false,
+    "installerLicenseAcceptedByAgent": false,
+    "installerRegistryActionsExecuted": false,
+    "sevenZipVersion": "25.01",
+    "sevenZipListing": "Recognized PE only; forced -tnsis listing failed with Is not archive, exit 1",
+    "installerManifest": "Nullsoft Install System v15-May-2025.cvs; requestedExecutionLevel highestAvailable",
+    "format": "NSISBI, 36-byte firstheader, 64-bit data block lengths, independent LZMA chunks with 3-byte lengths and zero terminator",
+    "extractor": ".tools/nsis-research/unpack_unity_nsisbi.py",
+    "extractorDescription": "Original Python standard-library parser of static section metadata and compressed file streams; no NSIS instruction execution",
+    "formatSource": "https://sourceforge.net/projects/nsisbi/files/nsisbi3.10.3/nsis-code-7423-3-NSIS-trunk.zip/download",
+    "formatSourceFiles": [
+      "Source/exehead/fileform.h",
+      "Source/exehead/fileform.c",
+      "Source/exehead/state.h",
+      "Source/exehead/util.c",
+      "Source/mtw/mtwdecompress.c"
+    ],
+    "checks": [
+      "Required official MD5 is checked before metadata extraction",
+      "Header layout, section ranges, compressed chunk lengths, LZMA stream ends and output sizes are validated",
+      "Per-file CRC32 covers compressed bytes followed by original UInt64 length, matching NSISBI source",
+      "Paths reject absolute forms, drive/ADS syntax, traversal, reserved characters and control characters",
+      "Doubled internal separators in Unity package metadata are normalized",
+      "Resolved output must remain under the selected extraction directory",
+      "Existing output files are never overwritten"
+    ],
+    "directoryOverrideFinding": "NSIS /D changes the installation-directory variable only; it does not suppress registry, shortcut or other installer-script actions. It was not used."
+  },
+  "staticToolchainInspection": {
+    "emscriptenVersionFile": "Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/emscripten/emscripten-version.txt",
+    "actualEmscriptenVersion": "3.1.39-git",
+    "emscriptenConfig": "Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/.emscripten",
+    "configFinding": "Python, LLVM, Node, Emscripten, Binaryen and frozen cache are resolved relative to EM_CONFIG within the bundled support package",
+    "verifiedWebPayloadFiles": [
+      "Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/python/python.exe",
+      "Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe",
+      "Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/llvm/clang.exe",
+      "Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/llvm/wasm-ld.exe",
+      "Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/emscripten/emcc.py",
+      "Editor/Data/PlaybackEngines/WebGLSupport/Bee/Unity.IL2CPP.Bee.BuildLogic.WebGL.dll"
+    ],
+    "verifiedEditorCatalogFiles": [
+      "Editor/Data/il2cpp/build/deploy/il2cpp.exe",
+      "Editor/Data/il2cpp/build/deploy/Unity.IL2CPP.dll",
+      "Editor/Data/Managed/Bee.BinLog.dll",
+      "Editor/Data/Managed/UnityEditor.dll",
+      "Editor/Data/Managed/UnityEngine.dll"
+    ],
+    "conclusion": "Static package inspection identifies the Web compiler toolchain and IL2CPP in the core Editor plus Web support payloads. No additional Web toolchain module was identified. This is not an executed build result."
+  },
+  "documentationSources": [
+    "https://docs.unity3d.com/6000.0/Documentation/Manual/InstallingUnity.html",
+    "https://nsis.sourceforge.io/Docs/Chapter3.html",
+    "https://docs.unity3d.com/6000.0/Documentation/Manual/plug-ins-managed.html",
+    "https://docs.unity3d.com/6000.0/Documentation/Manual/webgl-gettingstarted.html",
+    "https://docs.unity3d.com/6000.0/Documentation/Manual/webgl-native-plugins-with-emscripten.html"
+  ]
+}

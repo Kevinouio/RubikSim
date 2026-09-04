@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <UnityEditorRoot Condition="'$(UnityEditorRoot)' == ''">$(MSBuildThisFileDirectory)../.tools/unity/Editor</UnityEditorRoot>
+    <ApiMode Condition="'$(ApiMode)' == ''">Editor</ApiMode>
+    <UnityRuntimeAssemblies Condition="'$(ApiMode)' == 'Editor'">$(UnityEditorRoot)/Data/Managed/UnityEngine</UnityRuntimeAssemblies>
+    <UnityRuntimeAssemblies Condition="'$(ApiMode)' == 'Web'">$(UnityEditorRoot)/Data/PlaybackEngines/WebGLSupport/Managed</UnityRuntimeAssemblies>
+    <DefineConstants Condition="'$(ApiMode)' == 'Editor'">UNITY_EDITOR;UNITY_WEBGL</DefineConstants>
+    <DefineConstants Condition="'$(ApiMode)' == 'Web'">UNITY_WEBGL</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Assets/Scripts/**/*.cs" />
+    <Compile Include="../Assets/Editor/**/*.cs" Condition="'$(ApiMode)' == 'Editor'" />
+    <Reference Include="$(UnityRuntimeAssemblies)/UnityEngine.*.dll" />
+    <Reference Include="$(UnityEditorRoot)/Data/Managed/UnityEngine/UnityEditor*.dll" Condition="'$(ApiMode)' == 'Editor'" />
+  </ItemGroup>
+  <Target Name="RequireRealUnityAssemblies" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(UnityEditorRoot)/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll')"
+           Text="Real pinned Unity assemblies are required. Set UnityEditorRoot to the directory containing Unity.exe; no stub APIs are used." />
+    <Error Condition="'$(ApiMode)' != 'Editor' and '$(ApiMode)' != 'Web'" Text="ApiMode must be Editor or Web." />
+    <Error Condition="!Exists('$(UnityRuntimeAssemblies)/UnityEngine.CoreModule.dll')" Text="The selected platform's real Unity modules are missing. Install Web Build Support for ApiMode=Web." />
+  </Target>
+</Project>

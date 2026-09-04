@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-04T20:50:54.270Z",
+  "browser": "152.0.4191.62",
+  "mode": "actual Unity Web build",
+  "url": "http://127.0.0.1:8080",
+  "checks": [
+    "Served Unity manifest source SHA256 matches every current hashed project file",
+    "Accessible HTML page, 54-sticker editor and 18 explicit face-turn controls",
+    "Unity loads, starts solved, and actual rendered sticker transforms match logical state",
+    "R turn matches independently specified sticker bands, including animated transform audit",
+    "Malformed notation leaves state unchanged",
+    "Undo/redo restore exact snapshots",
+    "Keyboard face moves agree with on-screen notation",
+    "Camera orbit and reset preserve puzzle state",
+    "All 18 accessible face-turn buttons execute the correct face and suffix in the real player"
+  ],
+  "unityChecksRun": true,
+  "hardware": {
+    "cpu": "Intel(R) Core(TM) i9-14900K",
+    "logicalCpus": 32,
+    "totalMemoryBytes": 34047066112,
+    "os": "Windows_NT",
+    "release": "10.0.26200",
+    "architecture": "x64"
+  },
+  "sourceFingerprint": {
+    "sha256": "6fc4b4fc5d8924c3ac29511cc2060764464f185bbbcb04782af7af5ab04b78f7",
+    "fileCount": 50,
+    "algorithm": "SHA256(UTF8(ordinal-sorted relative forward-slash path + NUL), raw file bytes, NUL)",
+    "scope": "All Assets files plus existing Packages/manifest.json, Packages/packages-lock.json, ProjectSettings/ProjectVersion.txt and ProjectSettings/EditorBuildSettings.asset",
+    "manifestSha256": "6fc4b4fc5d8924c3ac29511cc2060764464f185bbbcb04782af7af5ab04b78f7",
+    "unityVersion": "6000.0.68f1",
+    "verified": true
+  },
+  "fixture": {
+    "path": "tools/browser-check/fixtures/seeded-states.json",
+    "sha256": "8725e752ba75ce63b7b15d406a92a5779d6ab2caa2c7c3ca8a80ff969d692e82",
+    "generator": "RubikSim.Core.CubeState + Scrambler.Generate(seed,25), SDK8.0.419, .tools/browser-fixtures/Generate.csproj",
+    "generatedUtc": "2026-09-04T20:39:01.2783146Z"
+  },
+  "result": "failed",
+  "failure": {
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UUUUUULLLURRURRURRFFFFFFFFFRRRDDDDDDLLDLLDLLDBBBBBBBBB'\n- 'UUUUUURRRDRRDRRDRRFFFFFFFFFLLLDDDDDDLLULLULLUBBBBBBBBB'\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'UUUUUULLLURRURRURRFFFFFFFFFRRRDDDDDDLLDLLDLLDBBBBBBBBB'\n- 'UUUUUURRRDRRDRRDRRFFFFFFFFFLLLDDDDDDLLULLULLUBBBBBBBBB'\n\n    at pointerChecks (file:///C:/Users/kevin/Desktop/GithubProjects/RubikSim/tools/browser-check/check.mjs:98:143)\n    at async file:///C:/Users/kevin/Desktop/GithubProjects/RubikSim/tools/browser-check/check.mjs:227:5"
+  },
+  "browserErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)"
+  ]
+}
